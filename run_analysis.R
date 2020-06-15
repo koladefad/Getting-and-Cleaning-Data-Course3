@@ -10,19 +10,19 @@ subject_test <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Datas
 test_data <- cbind(X_test, y_test, subject_test)
 
 ##Renaming the two new columns
-names(test_data)[562] <- "Activity"
+names(test_data)[562] <- "Activity_id"
 names(test_data)[563] <- "Subject_id"
 
-##Sorting the data by Activity
-test_data_sorted <- arrange(test_data, Activity)
+##Sorting the data by Activity_id
+test_data_sorted <- arrange(test_data, Activity_id)
 
-##Spliting into separate dataframes by Activity
-test_data_1 <- test_data_sorted[test_data_sorted$Activity == 1,]
-test_data_2 <- test_data_sorted[test_data_sorted$Activity == 2,]
-test_data_3 <- test_data_sorted[test_data_sorted$Activity == 3,]
-test_data_4 <- test_data_sorted[test_data_sorted$Activity == 4,]
-test_data_5 <- test_data_sorted[test_data_sorted$Activity == 5,]
-test_data_6 <- test_data_sorted[test_data_sorted$Activity == 6,]
+##Spliting into separate dataframes by Activity_id
+test_data_1 <- test_data_sorted[test_data_sorted$Activity_id == 1,]
+test_data_2 <- test_data_sorted[test_data_sorted$Activity_id == 2,]
+test_data_3 <- test_data_sorted[test_data_sorted$Activity_id == 3,]
+test_data_4 <- test_data_sorted[test_data_sorted$Activity_id == 4,]
+test_data_5 <- test_data_sorted[test_data_sorted$Activity_id == 5,]
+test_data_6 <- test_data_sorted[test_data_sorted$Activity_id == 6,]
 
 ##Adding another column with the Activity Name
 test_data_1 <- mutate(test_data_1, Activity_Name = "Walking")
@@ -45,19 +45,19 @@ subject_train <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Data
 train_data <- cbind(X_train, y_train, subject_train)
 
 ##Renaming the two new columns
-names(train_data)[562] <- "Activity"
+names(train_data)[562] <- "Activity_id"
 names(train_data)[563] <- "Subject_id"
 
-##Sorting the data by Activity
-train_data_sorted <- arrange(train_data, Activity)
+##Sorting the data by Activity_id
+train_data_sorted <- arrange(train_data, Activity_id)
 
-##Spliting into separate dataframes by Activity
-train_data_1 <- train_data_sorted[train_data_sorted$Activity == 1,]
-train_data_2 <- train_data_sorted[train_data_sorted$Activity == 2,]
-train_data_3 <- train_data_sorted[train_data_sorted$Activity == 3,]
-train_data_4 <- train_data_sorted[train_data_sorted$Activity == 4,]
-train_data_5 <- train_data_sorted[train_data_sorted$Activity == 5,]
-train_data_6 <- train_data_sorted[train_data_sorted$Activity == 6,]
+##Spliting into separate dataframes by Activity_id
+train_data_1 <- train_data_sorted[train_data_sorted$Activity_id == 1,]
+train_data_2 <- train_data_sorted[train_data_sorted$Activity_id == 2,]
+train_data_3 <- train_data_sorted[train_data_sorted$Activity_id == 3,]
+train_data_4 <- train_data_sorted[train_data_sorted$Activity_id == 4,]
+train_data_5 <- train_data_sorted[train_data_sorted$Activity_id == 5,]
+train_data_6 <- train_data_sorted[train_data_sorted$Activity_id == 6,]
 
 ##Adding another column with the Activity Name
 train_data_1 <- mutate(train_data_1, Activity_Name = "Walking")
@@ -110,7 +110,7 @@ names(merged_data)[index_std] <- features_std
 merged_data_extract <- merged_data[c(index_mean, index_std)]
 
 ##Binding with Subject ID and Activity Name
-merged_data_extract <- cbind(merged_data$Subject_id, merged_data$Activity, merged_data$Activity_Name, merged_data_extract)
+merged_data_extract <- cbind(merged_data$Subject_id, merged_data$Activity_id, merged_data$Activity_Name, merged_data_extract)
 
 ##Renaming the columns for Subject ID, Activity ID, and Activity Name
 names(merged_data_extract)[1] <- "Subject_id"
