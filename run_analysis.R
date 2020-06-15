@@ -2,9 +2,9 @@
 library(dplyr)
 ##Test Data Analysis
 ##Reading the three files
-X_test <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Dataset/test/X_test.txt", sep = "")
-y_test <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Dataset/test/y_test.txt", sep = "")
-subject_test <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Dataset/test/subject_test.txt", sep = "")
+X_test <- read.table("./UCI HAR Dataset/test/X_test.txt", sep = "")
+y_test <- read.table("./UCI HAR Dataset/test/y_test.txt", sep = "")
+subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", sep = "")
 
 ##Combining into one file
 test_data <- cbind(X_test, y_test, subject_test)
@@ -37,9 +37,9 @@ test_data_bind <- bind_rows(test_data_1, test_data_2, test_data_3, test_data_4, 
 
 ##Train Data Analysis
 ##Reading the three files
-X_train <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Dataset/train/X_train.txt", sep = "")
-y_train <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Dataset/train/y_train.txt", sep = "")
-subject_train <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Dataset/train/subject_train.txt", sep = "")
+X_train <- read.table("./UCI HAR Dataset/train/X_train.txt", sep = "")
+y_train <- read.table("./UCI HAR Dataset/train/y_train.txt", sep = "")
+subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt", sep = "")
 
 ##Combining into one file
 train_data <- cbind(X_train, y_train, subject_train)
@@ -75,7 +75,7 @@ merged_data <- rbind(test_data_bind, train_data_bind)
 
 ##Features file
 ##Reading the features file
-features <- read.table("~/Documents/R_files/Course3/Prog Ass 1/UCI HAR Dataset/features.txt", sep = "")
+features <- read.table("./UCI HAR Dataset/features.txt", sep = "")
 
 ##Renaming the variable column
 names(features)[2] <- "Variable"

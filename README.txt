@@ -6,6 +6,6 @@ README.txt
 
 Codebook.md : contains detailed information on how the original data was transformed in my analysis.
 
-run_analysis.R : contains the R script used in cleaning the data.
+run_analysis.R : contains the R script used in cleaning the data. This script assumes the source data is loaded in the working directory.
 
 TidyDataSet.txt : this is the output of the 5th step of the programming assignment.
