@@ -110,19 +110,20 @@ names(merged_data)[index_std] <- features_std
 merged_data_extract <- merged_data[c(index_mean, index_std)]
 
 ##Binding with Subject ID and Activity Name
-merged_data_extract <- cbind(merged_data$Subject_id, merged_data$Activity_Name, merged_data_extract)
+merged_data_extract <- cbind(merged_data$Subject_id, merged_data$Activity, merged_data$Activity_Name, merged_data_extract)
 
-##Renaming the columns for Subject ID and Activity Name
+##Renaming the columns for Subject ID, Activity ID, and Activity Name
 names(merged_data_extract)[1] <- "Subject_id"
-names(merged_data_extract)[2] <- "Activity_Name"
+names(merged_data_extract)[2] <- "Activity_id"
+names(merged_data_extract)[3] <- "Activity_Name"
 
 ##Arranging the final data by Subject ID
 final_data <- arrange(merged_data_extract, Subject_id)
 
-#Step 5
+##Step 5
 ##Calclulating the average(mean) of each variable for each activity and each subject
-TidyDataSet <- aggregate(. ~Subject_id + Activity_Name, final_data, mean)
+TidyDataSet <- aggregate(. ~Subject_id + Activity_id + Activity_Name, final_data, mean)
 
 ##Rearranging the tidy data
-TidyDataSet <- arrange(TidyDataSet, Subject_id, Activity_Name)
+TidyDataSet <- arrange(TidyDataSet, Subject_id, Activity_id)
 
